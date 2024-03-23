@@ -1,0 +1,33 @@
+.addBtn {
+  border: 1px solid #f2f2f2;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  background-image: url(../../assets/plus.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.alreadyAddedBtn {
+  border: 1px solid #f2f2f2;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #89f09c 0%, #3cc755 100%);
+  cursor: pointer;
+  position: relative;
+}
+
+.alreadyAddedBtn::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  margin: auto;
+  display: block;
+  position: absolute;
+  left: calc(50% - 6px);
+  top: calc(50% - 6px);
+  background-image: url(../../assets/check-mark.svg);
+}
