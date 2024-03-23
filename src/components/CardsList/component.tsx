@@ -28,7 +28,7 @@ const CardsList: FC<Props> = ({}) => {
             price={product.price}
             imageSrc={product.images[0]}
             inBasket={true}
-            liked={true}
+            liked={false}
           />
         ))}
       </div>

@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import type { PayloadAction } from '@reduxjs/toolkit';
+import {BASE_API_URL} from "../../utils/constants.ts";
+
 
 type Product = {
   id: number;
@@ -13,12 +14,12 @@ interface ProductsState {
   products: Product[];
 }
 
-export const getProductsAll = createAsyncThunk<Product[], undefined, { rejectValue: any}>(
+export const getProductsAll = createAsyncThunk<Product[], undefined, { rejectValue: any }>(
   'users/getProductsAll',
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(
-        'https://api.escuelajs.co/api/v1/products?offset=0&limit=14',
+        `${BASE_API_URL}/products?offset=0&limit=14`,
       );
       return response.data;
     } catch (error) {
@@ -35,17 +36,7 @@ const initialState: ProductsState = {
 export const productsSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {
-    // increment: (state) => {
-    //   state.value += 1;
-    // },
-    // decrement: (state) => {
-    //   state.value -= 1;
-    // },
-    // incrementByAmount: (state, action: PayloadAction<number>) => {
-    //   state.value += action.payload;
-    // },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getProductsAll.fulfilled, (state, action) => {
       if (!action?.payload || action.payload.length === 0) {
@@ -58,6 +49,6 @@ export const productsSlice = createSlice({
   },
 });
 
-// export const { increment, decrement, incrementByAmount } = productsSlice.actions;
+export const {} = productsSlice.actions;
 
 export default productsSlice.reducer;

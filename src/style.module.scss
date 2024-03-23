@@ -8,7 +8,16 @@ body {
   background-color: #e7f6ff;
   padding: 72px 85px;
 }
+
 p {
   margin-block-start: 0;
   margin-block-end: 0;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
