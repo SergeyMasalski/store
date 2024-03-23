@@ -2,11 +2,13 @@ import classNames from 'classnames';
 import Layout from './components/Layout/component';
 import styles from './style.module.scss';
 
+import Registration from './components/Registration/component';
+
 function App() {
   return (
     <div className={classNames(styles.root)}>
       <Layout>
-        <div></div>
+        <Registration />
       </Layout>
     </div>
   );

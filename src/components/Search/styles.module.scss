@@ -1,8 +1,14 @@
-.root {
+.container {
+  margin: 40px 60px 0;
+  display: flex;
+  align-items: center;
+}
+
+.rootSearch {
   display: flex;
   box-sizing: border-box;
   padding: 15px;
-  margin-left: 100px;
+  margin-left: auto;
   border: 1px solid #f3f3f3;
   border-radius: 10px;
   gap: 15px;
@@ -17,7 +23,12 @@
   background-repeat: no-repeat;
 }
 
-.headerSearch {
+.search {
   outline: none;
   border: none;
+}
+
+.text {
+  font-size: 32px;
+  font-weight: 700;
 }

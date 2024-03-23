@@ -1,0 +1,74 @@
+.root {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 420px;
+  margin: 150px auto 0;
+  color: #5c5c5c;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h3,
+h4 {
+  font-weight: 500;
+  margin: 0;
+  padding: 15px 0;
+}
+
+.readMail,
+.createPassword {
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+input {
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  padding: 15px 20px;
+  background-color: #5c5c5c;
+  border-radius: 4px;
+
+  &::placeholder {
+    color: #babdcc;
+  }
+}
+
+button {
+  box-sizing: border-box;
+  padding: 15px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  background-color: #9dd458;
+  border: none;
+  margin-top: 21px;
+  border-radius: 18px;
+  transition: 0.5s;
+  font-size: 16px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #587437;
+    transition: 0.5s;
+  }
+}
+
+.hint {
+  margin: 15px auto;
+}
+
+a {
+  color: #9dd458;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: 1px underline solid;
+  }
+}
