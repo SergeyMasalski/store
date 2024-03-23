@@ -6,7 +6,7 @@ function App() {
   return (
     <div className={classNames(styles.root)}>
       <Layout>
-        <div></div>
+        <Registration />
       </Layout>
     </div>
   );
