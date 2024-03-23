@@ -6,7 +6,7 @@ interface Props {}
 
 const Authorization: FC<Props> = ({}) => {
   return (
-    <div className={classNames(styles.root)}>
+    <form className={classNames(styles.root)}>
       <h3>Добро пожаловать!</h3>
       <h4>Войдите в систему, чтобы получить доступ к панели управления, настройкам и проектам.</h4>
       <label htmlFor="readMail" className={classNames(styles.readMail)}>
@@ -24,7 +24,7 @@ const Authorization: FC<Props> = ({}) => {
       <div className={classNames(styles.hint)}>
         У Вас есть аккаунт? <a>Регистрация</a>
       </div>
-    </div>
+    </form>
   );
 };
 

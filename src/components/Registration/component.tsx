@@ -6,7 +6,7 @@ interface Props {}
 
 const Registration: FC<Props> = ({}) => {
   return (
-    <div className={classNames(styles.root)}>
+    <form className={classNames(styles.root)}>
       <h3>Добро пожаловать!</h3>
       <h4>Зарегистрируйтесь, чтобы получить доступ к панели инструментов, настройкам и проектам.</h4>
 
@@ -30,7 +30,7 @@ const Registration: FC<Props> = ({}) => {
       <div className={classNames(styles.hint)}>
         У Вас есть аккаунт? <a>Войти</a>
       </div>
-    </div>
+    </form>
   );
 };
 
