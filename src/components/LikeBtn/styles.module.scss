@@ -1,12 +1,13 @@
 .likeBtn {
   position: absolute;
-  left: 0;
+  left: 0px;
   top: 0;
   background-color: #fef0f0;
   border: none;
   width: 32px;
   height: 32px;
   border-radius: 7px;
+  margin: 0;
   background-image: url(../../assets/red-heart.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -18,13 +19,10 @@
   left: 0;
   top: 0;
   background-color: white;
-
-
-  border: 1px solid #F8F8F8;
-  
-  
+  border: 1px solid #f8f8f8;
   width: 32px;
   height: 32px;
+  margin: 0;
   border-radius: 7px;
   background-image: url(../../assets/grey-heart.svg);
   background-repeat: no-repeat;
