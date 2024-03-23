@@ -5,15 +5,13 @@ import styles from './style.module.scss';
 import Registration from './components/Registration/component';
 import CardsList from './components/CardsList/component';
 
-
 function App() {
   return (
     <div className={classNames(styles.root)}>
       <Layout>
-        <Registration />
+        {/* <Registration /> */}
 
-        <CardsList/>
-
+        <CardsList />
       </Layout>
     </div>
   );

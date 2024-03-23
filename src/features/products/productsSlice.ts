@@ -1,32 +1,63 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from "../store"
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+import type { PayloadAction } from '@reduxjs/toolkit';
+
+type Product = {
+  id: number;
+  title: string;
+  price: number;
+  images: string[];
+};
 
 interface ProductsState {
-  value: number
+  products: Product[];
 }
 
+export const getProductsAll = createAsyncThunk<Product[], undefined, { rejectValue: any}>(
+  'users/getProductsAll',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get(
+        'https://api.escuelajs.co/api/v1/products?offset=0&limit=14',
+      );
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
+
 const initialState: ProductsState = {
-  value: 0,
-}
+  products: [],
+};
 
 export const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1
-    },
-    decrement: (state) => {
-      state.value -= 1
-    },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload
-    },
+    // increment: (state) => {
+    //   state.value += 1;
+    // },
+    // decrement: (state) => {
+    //   state.value -= 1;
+    // },
+    // incrementByAmount: (state, action: PayloadAction<number>) => {
+    //   state.value += action.payload;
+    // },
   },
-})
+  extraReducers: (builder) => {
+    builder.addCase(getProductsAll.fulfilled, (state, action) => {
+      if (!action?.payload || action.payload.length === 0) {
+        state.products = [];
+        return;
+      }
 
-export const { increment, decrement, incrementByAmount } = productsSlice.actions
+      state.products = action.payload;
+    });
+  },
+});
 
+// export const { increment, decrement, incrementByAmount } = productsSlice.actions;
 
-export default productsSlice.reducer
+export default productsSlice.reducer;

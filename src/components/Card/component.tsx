@@ -5,26 +5,31 @@ import styles from './styles.module.scss';
 import sneakers from '../../assets/sneakers.jpg';
 import LikeBtn from '../LikeBtn/component';
 import AddToBasketBtn from '../AddToBasketBtn/component';
+
 interface Props {
+  id: number;
+  title: string;
+  price: number;
+  imageSrc: string;
   inBasket: boolean;
   liked: boolean;
 }
 
-const Card: FC<Props> = ({liked, inBasket}) => {
+const Card: FC<Props> = ({ id, title, price, imageSrc, liked, inBasket }) => {
   return (
     <div className={classNames(styles.root)}>
       <div className={classNames(styles.imgContainer)}>
-        <img src={sneakers} alt="" className={classNames(styles.cardImg)} />
+        <img src={imageSrc} alt={title} className={classNames(styles.cardImg)} />
         <LikeBtn liked={liked} />
       </div>
       <div className={classNames(styles.textContainer)}>
-        <p className="">Мужские Кроссовки Nike Blazer Mid Suede</p>
+        <p className="">{title}</p>
       </div>
 
       <div className={classNames(styles.priceContainer)}>
         <div>
           <p className={classNames(styles.priceText)}>ЦЕНА:</p>
-          <p className={classNames(styles.price)}>12999 руб</p>
+          <p className={classNames(styles.price)}>{price} $</p>
         </div>
 
         <AddToBasketBtn inBasket={inBasket} />
