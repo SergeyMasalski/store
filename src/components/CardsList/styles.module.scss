@@ -1,0 +1,10 @@
+.root {
+  padding: 0 60px;
+}
+
+.cardList {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
