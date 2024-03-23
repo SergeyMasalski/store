@@ -1,0 +1,23 @@
+.root {
+  display: flex;
+  box-sizing: border-box;
+  padding: 15px;
+  margin-left: 100px;
+  border: 1px solid #f3f3f3;
+  border-radius: 10px;
+  gap: 15px;
+}
+
+.icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url(../../assets/search.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.headerSearch {
+  outline: none;
+  border: none;
+}
