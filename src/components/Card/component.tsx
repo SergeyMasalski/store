@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 import LikeBtn from '../LikeBtn/component';
 import AddToBasketBtn from '../AddToBasketBtn/component';
 
-interface Props {
+type Props = {
   id: number;
   title: string;
   price: number;

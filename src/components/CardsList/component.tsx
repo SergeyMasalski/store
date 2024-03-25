@@ -6,7 +6,9 @@ import SearchContainer from '../Search/container';
 import { useAppDispatch, useAppSelector } from '../../features/hooks';
 import { getAllProducts } from '../../features/products/productsSlice';
 
-interface Props {}
+type Props = {
+  
+}
 
 const CardsList: FC<Props> = ({}) => {
   const dispatch = useAppDispatch();
