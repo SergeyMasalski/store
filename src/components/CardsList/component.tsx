@@ -4,33 +4,29 @@ import styles from './styles.module.scss';
 import Card from '../Card/component';
 import SearchContainer from '../Search/container';
 import { useAppDispatch, useAppSelector } from '../../features/hooks';
-import { getProductsAll } from '../../features/products/productsSlice';
+import { getAllProducts } from '../../features/products/productsSlice';
 
 interface Props {}
 
 const CardsList: FC<Props> = ({}) => {
   const dispatch = useAppDispatch();
-  const products = useAppSelector((state) => state.products.products);
+  const { products, isLoading } = useAppSelector((state) => state.products);
 
   useEffect(() => {
-    dispatch(getProductsAll());
+    dispatch(getAllProducts());
   }, []);
 
   return (
     <div className={classNames(styles.root)}>
       <SearchContainer />
       <div className={classNames(styles.cardList)}>
-        {products.map((product) => (
-          <Card
-            key={product.id}
-            id={product.id}
-            title={product.title}
-            price={product.price}
-            imageSrc={product.images[0]}
-            inBasket={true}
-            liked={false}
-          />
-        ))}
+        {!isLoading ? (
+          <h1>Загрузка</h1>
+        ) : (
+          products.map((product) => (
+            <Card key={product.id} {...product} inBasket={true} liked={false} />
+          ))
+        )}
       </div>
     </div>
   );
