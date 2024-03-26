@@ -1,37 +1,81 @@
 import classNames from 'classnames';
-import { FC } from 'react';
+
 import styles from './styles.module.scss';
+import { FC, useReducer, useState } from 'react';
+import { ROUTES } from '../../utils/routes';
+import { Link } from 'react-router-dom';
+import { FormReducer } from '../../models/types/AuthRegistration.Reducer';
+import { reducer } from '../../shared/reducer.function';
+import { User } from '../../models/types/User';
+import { FormField } from '../FormField/component';
 
-interface Props {}
+const initialState: User = {
+  name: '',
+  mail: '',
+  password: '',
+};
 
-const Registration: FC<Props> = ({}) => {
+export const Registration: FC = ({}) => {
+  const [form, dispatch] = useReducer<FormReducer>(reducer, initialState);
+
+  let [buttonIsPushed, setButtonIsPushed] = useState<boolean>(false);
+
   return (
     <form className={classNames(styles.root)}>
       <h3>Добро пожаловать!</h3>
       <h4>Зарегистрируйтесь, чтобы получить доступ к панели инструментов, настройкам и проектам.</h4>
 
-      <label htmlFor="readName" className={classNames(styles.readMail)}>
-        Имя
-      </label>
-      <input type="text" id="readName" placeholder="Введите Ваше имя"  className={classNames(styles.input)}/>
+      <FormField
+        buttonIsPushed={buttonIsPushed}
+        dispatch={dispatch}
+        form={form}
+        idInput={'readName'}
+        labelName={'Ваше имя'}
+        placeholderText={'Введите Ваше имя'}
+        typeAction={'readName'}
+        typeInput={'text'}
+        validateField={'name'}
+      />
 
-      <label htmlFor="readMail" className={classNames(styles.readMail)}>
-        Электронная почта
-      </label>
-      <input type="text" id="readMail" placeholder="Введите Вашу почту"  className={classNames(styles.input)}/>
+      <FormField
+        buttonIsPushed={buttonIsPushed}
+        dispatch={dispatch}
+        form={form}
+        idInput={'readMail'}
+        labelName={'Электронная почта'}
+        placeholderText={'Введите Вашу почту'}
+        typeAction={'readMail'}
+        typeInput={'text'}
+        validateField={'mail'}
+      />
 
-      <label htmlFor="createPassword" className={classNames(styles.createPassword)}>
-        Пароль
-      </label>
-      <input type="password" id="createPassword" placeholder="Введите Ваш пароль"  className={classNames(styles.input)} />
+      <FormField
+        buttonIsPushed={buttonIsPushed}
+        dispatch={dispatch}
+        form={form}
+        idInput={'createPassword'}
+        labelName={'Ваш пароль'}
+        placeholderText={'Создайте Ваш пароль'}
+        typeAction={'createPassword'}
+        typeInput={'password'}
+        validateField={'password'}
+      />
 
-      <button>Зарегистрироваться</button>
+      <button
+        onClick={(event) => {
+          event.preventDefault();
+          setButtonIsPushed(true);
+        }}
+      >
+        Зарегистрироваться
+      </button>
 
       <div className={classNames(styles.hint)}>
-        У Вас есть аккаунт? <a>Войти</a>
+        У Вас есть аккаунт?{' '}
+        <Link to={ROUTES.AUTHORIZATION}>
+          <a>Войти</a>
+        </Link>
       </div>
     </form>
   );
 };
-
-export default Registration;

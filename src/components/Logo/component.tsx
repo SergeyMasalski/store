@@ -4,9 +4,7 @@ import styles from './styles.module.scss';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../utils/routes';
 
-interface Props {}
-
-const Logo: FC<Props> = ({}) => {
+export const Logo: FC = ({}) => {
   return (
     <Link to={ROUTES.HOME} className={classnames(styles.root)}>
       <div className={classnames(styles.logoStore)}></div>
@@ -17,5 +15,3 @@ const Logo: FC<Props> = ({}) => {
     </Link>
   );
 };
-
-export default Logo;

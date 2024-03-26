@@ -1,31 +1,78 @@
 import classNames from 'classnames';
-import { FC } from 'react';
+import { FC, useContext, useReducer, useState } from 'react';
 import styles from './styles.module.scss';
 
-interface Props {}
+import { User as State } from '../../models/types/User';
 
-const Authorization: FC<Props> = ({}) => {
+import { Link } from 'react-router-dom';
+import { ROUTES } from '../../utils/routes';
+import { FormField } from '../FormField/component';
+import { reducer } from '../../shared/reducer.function';
+import { FormReducer } from '../../models/types/AuthRegistration.Reducer';
+import { UserContext } from '../../contexts/UserContext';
+
+const initialState: State = {
+  mail: '',
+  password: '',
+};
+
+export const Authorization: FC = ({}) => {
+  const [form, dispatch] = useReducer<FormReducer>(reducer, initialState);
+
+  const { setUser } = useContext(UserContext);
+
+  let [buttonIsPushed, setButtonIsPushed] = useState<boolean>(false);
+
   return (
     <form className={classNames(styles.root)}>
       <h3>Добро пожаловать!</h3>
       <h4>Войдите в систему, чтобы получить доступ к панели управления, настройкам и проектам.</h4>
-      <label htmlFor="readMail" className={classNames(styles.readMail)}>
-        Электронная почта
-      </label>
-      <input type="text" id="readMail" placeholder="Введите Вашу почту" />
 
-      <label htmlFor="createPassword" className={classNames(styles.createPassword)}>
-        Пароль
-      </label>
-      <input type="password" id="createPassword" placeholder="Введите Ваш пароль" />
+      <FormField
+        buttonIsPushed={buttonIsPushed}
+        dispatch={dispatch}
+        form={form}
+        idInput={'readMail'}
+        labelName={'Электронная почта'}
+        placeholderText={'Введите Вашу почту'}
+        typeAction={'readMail'}
+        typeInput={'text'}
+        validateField={'mail'}
+      />
 
-      <button>Войти</button>
+      <FormField
+        buttonIsPushed={buttonIsPushed}
+        dispatch={dispatch}
+        form={form}
+        idInput={'readPassword'}
+        labelName={'Пароль'}
+        placeholderText={'Введите Ваш пароль'}
+        typeAction={'readPassword'}
+        typeInput={'password'}
+        validateField={'password'}
+      />
+
+      <button
+        onClick={(event) => {
+          event.preventDefault();
+          setButtonIsPushed(true);
+
+          const hasInvalidFields = Object.values(form).some((item) => item.length === 0);
+
+          if (hasInvalidFields) return;
+
+          if (setUser) setUser(form);
+        }}
+      >
+        Войти
+      </button>
 
       <div className={classNames(styles.hint)}>
-        У Вас есть аккаунт? <a>Регистрация</a>
+        У Вас есть аккаунт?{' '}
+        <Link to={ROUTES.REGISTRATION}>
+          <a>Регистрация</a>
+        </Link>
       </div>
     </form>
   );
 };
-
-export default Authorization;

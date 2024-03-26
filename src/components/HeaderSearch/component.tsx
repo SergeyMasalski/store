@@ -2,9 +2,7 @@ import classNames from 'classnames';
 import { FC } from 'react';
 import styles from './styles.module.scss';
 
-interface Props {}
-
-const HeaderSearch: FC<Props> = ({}) => {
+export const HeaderSearch: FC = ({}) => {
   return (
     <div className={classNames(styles.root)}>
       <label className={styles.icon} htmlFor="headerSearch"></label>
@@ -12,5 +10,3 @@ const HeaderSearch: FC<Props> = ({}) => {
     </div>
   );
 };
-
-export default HeaderSearch;

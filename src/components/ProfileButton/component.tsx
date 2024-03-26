@@ -4,9 +4,7 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../utils/routes';
 
-interface Props {}
-
-const ProfileButton: FC<Props> = ({}) => {
+export const ProfileButton: FC = ({}) => {
   return (
     <button className={classNames(styles.root)}>
       <div className={classNames(styles.icon)}></div>
@@ -16,5 +14,3 @@ const ProfileButton: FC<Props> = ({}) => {
     </button>
   );
 };
-
-export default ProfileButton;

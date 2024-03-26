@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { FC, useEffect } from 'react';
 import styles from './styles.module.scss';
-import Card from '../Card/component';
-import SearchContainer from '../Search/container';
+import { Card } from '../Card/component';
+import { SearchContainer } from '../Search/container';
 import { useAppDispatch, useAppSelector } from '../../features/hooks';
 import { getAllProducts } from '../../features/products/productsSlice';
 import { LoadingStage } from '../../models/enums/LoadingStage';
@@ -22,13 +22,7 @@ const CardsList: FC<Props> = ({}) => {
     <div className={classNames(styles.root)}>
       <SearchContainer />
       <div className={classNames(styles.cardList)}>
-        {loadingStages === LoadingStage.pending ? (
-          <h1>Загрузка</h1>
-        ) : (
-          products.map((product: any) => (
-            <Card key={product.id} {...product} inBasket={true} liked={false} />
-          ))
-        )}
+        {loadingStages === LoadingStage.pending ? <h1>Загрузка</h1> : products.map((product: any) => <Card key={product.id} {...product} inBasket={true} liked={false} />)}
       </div>
     </div>
   );

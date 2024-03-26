@@ -1,11 +1,9 @@
 import { FC } from 'react';
-import Search from './component';
+import { Search } from './component';
 import classNames from 'classnames';
 import styles from './styles.module.scss';
 
-interface Props {}
-
-const SearchContainer: FC<Props> = ({}) => {
+export const SearchContainer: FC = ({}) => {
   return (
     <div className={classNames(styles.container)}>
       <div className={classNames(styles.text)}>Все товары</div>
@@ -13,5 +11,3 @@ const SearchContainer: FC<Props> = ({}) => {
     </div>
   );
 };
-
-export default SearchContainer;
