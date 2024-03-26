@@ -2,24 +2,23 @@ import classNames from 'classnames';
 import { FC } from 'react';
 import styles from './styles.module.scss';
 
-import sneakers from '../../assets/sneakers.jpg';
 import LikeBtn from '../LikeBtn/component';
 import AddToBasketBtn from '../AddToBasketBtn/component';
 
-interface Props {
+type Props = {
   id: number;
   title: string;
   price: number;
-  imageSrc: string;
+  images: string[];
   inBasket: boolean;
   liked: boolean;
 }
 
-const Card: FC<Props> = ({ id, title, price, imageSrc, liked, inBasket }) => {
+const Card: FC<Props> = ({ id, title, price, images, liked, inBasket }) => {
   return (
     <div className={classNames(styles.root)}>
       <div className={classNames(styles.imgContainer)}>
-        <img src={imageSrc} alt={title} className={classNames(styles.cardImg)} />
+        <img src={images[0]} alt={title} className={classNames(styles.cardImg)} />
         <LikeBtn liked={liked} />
       </div>
       <div className={classNames(styles.textContainer)}>
