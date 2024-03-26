@@ -36,7 +36,7 @@ export const Authorization: FC = ({}) => {
         labelName={'Электронная почта'}
         placeholderText={'Введите Вашу почту'}
         typeAction={'readMail'}
-        typeInput={'text'}
+        typeInput={'email'}
         validateField={'mail'}
       />
 

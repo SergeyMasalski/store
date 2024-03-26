@@ -5,7 +5,7 @@ import { Action, User } from '../../models/types/User';
 
 type Props = {
   idInput: string;
-  typeInput: 'text' | 'password';
+  typeInput: 'text' | 'password' | 'email';
   form: User;
   placeholderText: string;
   typeAction: Action['type'];
