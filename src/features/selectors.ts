@@ -1,1 +1,2 @@
-export const produsts = (({ produsts }) => produsts);
+export const stateProducts = ((state: any) => state.products);
+

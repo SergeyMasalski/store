@@ -5,14 +5,14 @@ import Card from '../Card/component';
 import SearchContainer from '../Search/container';
 import { useAppDispatch, useAppSelector } from '../../features/hooks';
 import { getAllProducts } from '../../features/products/productsSlice';
+import { LoadingStage } from '../../models/enums/LoadingStage';
+import { stateProducts } from '../../features/selectors';
 
-type Props = {
-  
-}
+type Props = {};
 
 const CardsList: FC<Props> = ({}) => {
   const dispatch = useAppDispatch();
-  const { products, isLoading } = useAppSelector((state) => state.products);
+  const { products, loadingStages } = useAppSelector(stateProducts);
 
   useEffect(() => {
     dispatch(getAllProducts());
@@ -22,10 +22,10 @@ const CardsList: FC<Props> = ({}) => {
     <div className={classNames(styles.root)}>
       <SearchContainer />
       <div className={classNames(styles.cardList)}>
-        {!isLoading ? (
+        {loadingStages === LoadingStage.pending ? (
           <h1>Загрузка</h1>
         ) : (
-          products.map((product) => (
+          products.map((product: any) => (
             <Card key={product.id} {...product} inBasket={true} liked={false} />
           ))
         )}
