@@ -7,6 +7,7 @@ import CardsList from './components/CardsList/component';
 
 import styles from './style.module.scss';
 import { ROUTES } from './utils/routes';
+import Basket from './components/Basket/component';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path={ROUTES.HOME} element={<CardsList />} />
           <Route path={ROUTES.REGISTRATION} element={<Registration />} />
+          <Route path={ROUTES.BASKET} element={<Basket />} />
         </Routes>
       </Layout>
     </div>

@@ -3,21 +3,24 @@ import { BASE_API_URL } from '../../utils/constants.ts';
 import axios from 'axios';
 import { LoadingStage } from '../../models/enums/LoadingStage.ts';
 import { Product } from '../../models/types/Product.ts';
-import { ProductsState } from '../../models/interface/ProductsState.ts';
+import { ProductsState } from '../../models/interfaces/ProductsState.ts';
 
+export const getAllProducts = createAsyncThunk<
+  Product[],
+  undefined,
+  { rejectValue: any }
+>('users/getProductsAll', async (_, thunkAPI) => {
+  try {
+    const response = await axios.get(
+      `${BASE_API_URL}/products?offset=0&limit=14`
+    );
 
-export const getAllProducts = createAsyncThunk<Product[], undefined, { rejectValue: any }>(
-  'users/getAllProducts',
-  async (_, thunkAPI) => {
-    try {
-      const response = await axios.get(`${BASE_API_URL}/products?offset=0&limit=14`);
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return thunkAPI.rejectWithValue(error);
-    }
-  },
-);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return thunkAPI.rejectWithValue(error);
+  }
+});
 
 const initialState: ProductsState = {
   products: [],
@@ -38,15 +41,19 @@ export const productsSlice = createSlice({
         state.loadingStages = LoadingStage.pending;
         return;
       }
+
       state.loadingStages = LoadingStage.fulfilled;
-      state.products = action.payload;
+
+      const products = action.payload.map((el) => {
+        return { ...el, images: el.images[0] };
+      });
+
+      state.products = products;
     });
     builder.addCase(getAllProducts.rejected, (state) => {
       state.loadingStages = LoadingStage.rejected;
     });
   },
 });
-
-export const {} = productsSlice.actions;
 
 export default productsSlice.reducer;

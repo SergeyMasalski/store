@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from '../../features/hooks';
 import { getAllProducts } from '../../features/products/productsSlice';
 import { LoadingStage } from '../../models/enums/LoadingStage';
 import { stateProducts } from '../../features/selectors';
+import { Product } from '../../models/types/Product';
 
 type Props = {};
 
@@ -16,7 +17,7 @@ const CardsList: FC<Props> = ({}) => {
 
   useEffect(() => {
     dispatch(getAllProducts());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={classNames(styles.root)}>
@@ -25,8 +26,14 @@ const CardsList: FC<Props> = ({}) => {
         {loadingStages === LoadingStage.pending ? (
           <h1>Загрузка</h1>
         ) : (
-          products.map((product: any) => (
-            <Card key={product.id} {...product} inBasket={true} liked={false} />
+          products.map((product:Product) => (
+            <Card
+              key={product.id}
+              {...product}
+            
+              // inBasket={false}
+              // liked={false}
+            />
           ))
         )}
       </div>
@@ -35,3 +42,4 @@ const CardsList: FC<Props> = ({}) => {
 };
 
 export default CardsList;
+
