@@ -1,13 +1,9 @@
 import { FC } from 'react';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
-import CartButton from '../CartButton/component';
-import MarksButton from '../MarksButton/component';
-import ProfileButton from '../ProfileButton/component';
+import { CartButton, MarksButton, ProfileButton } from '../../components';
 
-interface Props {}
-
-const HeaderTabs: FC<Props> = ({}) => {
+export const HeaderTabs: FC = ({}) => {
   return (
     <div className={classNames(styles.root)}>
       <CartButton />
@@ -16,5 +12,3 @@ const HeaderTabs: FC<Props> = ({}) => {
     </div>
   );
 };
-
-export default HeaderTabs;

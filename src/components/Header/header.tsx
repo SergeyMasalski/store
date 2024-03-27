@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import Logo from '../Logo/component';
-import HeaderTabs from '../HeaderTabs/component';
+
 import classNames from 'classnames';
 import styles from './styles.module.scss';
+import { HeaderTabs, Logo } from '../../components';
 
 interface Props {}
 
-const Header: FC<Props> = ({}) => {
+export const Header: FC<Props> = ({}) => {
   return (
     <div className={classNames(styles.root)}>
       <Logo />
@@ -14,5 +14,3 @@ const Header: FC<Props> = ({}) => {
     </div>
   );
 };
-
-export default Header;

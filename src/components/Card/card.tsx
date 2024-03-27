@@ -2,11 +2,11 @@ import classNames from 'classnames';
 import { FC, useEffect } from 'react';
 import styles from './styles.module.scss';
 
-import LikeBtn from '../LikeBtn/component';
-import AddToBasketBtn from '../AddToBasketBtn/component';
 import { useAppDispatch, useAppSelector } from '../../features/hooks';
 import { getBasket } from '../../features/basket/basketSlice';
 import { stateBasketProducts } from '../../features/selectors';
+import { LikeBtn, AddToBasketBtn } from '../../components';
+
 
 type Props = {
   id: number;
@@ -17,8 +17,8 @@ type Props = {
   // liked: boolean;
 };
 
-const Card: FC<Props> = ({ id, title, price, images }) => {
-  const {productsInBasket} = useAppSelector(stateBasketProducts);
+export const Card: FC<Props> = ({ id, title, price, images }) => {
+  const { productsInBasket } = useAppSelector(stateBasketProducts);
 
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -54,5 +54,3 @@ const Card: FC<Props> = ({ id, title, price, images }) => {
     </div>
   );
 };
-
-export default Card;

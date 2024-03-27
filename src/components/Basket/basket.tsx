@@ -3,18 +3,18 @@ import classNames from 'classnames';
 import styles from './styles.module.scss';
 import { useAppDispatch, useAppSelector } from '../../features/hooks';
 import { getBasket, clearBasket } from '../../features/basket/basketSlice';
-import Card from '../Card/component';
 import { stateBasketProducts } from '../../features/selectors';
+import { Card } from '../../components';
 interface Props {}
 
-const Basket: FC<Props> = ({}) => {
+export const Basket: FC<Props> = ({}) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getBasket());
   }, [dispatch]);
 
-  const {productsInBasket} = useAppSelector(stateBasketProducts);
+  const { productsInBasket } = useAppSelector(stateBasketProducts);
   console.log(productsInBasket);
 
   return (
@@ -24,7 +24,7 @@ const Basket: FC<Props> = ({}) => {
         {productsInBasket.map((product) => (
           <Card
             key={product.id}
-           {...product}
+            {...product}
             // inBasket={true}
             // liked={false}
           />
@@ -33,5 +33,3 @@ const Basket: FC<Props> = ({}) => {
     </>
   );
 };
-
-export default Basket;

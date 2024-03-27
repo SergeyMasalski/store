@@ -1,0 +1,37 @@
+.input {
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  padding: 15px 20px;
+  background-color: #5c5c5c;
+  border-radius: 4px;
+  color: rgb(232, 232, 232);
+
+  &::placeholder {
+    color: #babdcc;
+  }
+}
+
+.containerField {
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.validateMassage {
+  background-color: rgb(230, 46, 46);
+  position: absolute;
+  color: rgb(232, 232, 232);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  bottom: 0;
+  transform: translate(0, 100%);
+}
+
+.labels {
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}

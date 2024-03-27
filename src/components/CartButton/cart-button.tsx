@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 interface Props {}
 
-const CartButton: FC<Props> = ({}) => {
+export const CartButton: FC<Props> = ({}) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -20,4 +20,4 @@ const CartButton: FC<Props> = ({}) => {
   );
 };
 
-export default CartButton;
+

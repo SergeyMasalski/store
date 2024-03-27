@@ -16,7 +16,7 @@ type Props = {
     images: string;
   };
 };
-const AddToBasketBtn: FC<Props> = ({ inBasket, product }) => {
+export const AddToBasketBtn: FC<Props> = ({ inBasket, product }) => {
   const dispatch = useAppDispatch();
   return (
     <>
@@ -43,5 +43,3 @@ const AddToBasketBtn: FC<Props> = ({ inBasket, product }) => {
     </>
   );
 };
-
-export default AddToBasketBtn;

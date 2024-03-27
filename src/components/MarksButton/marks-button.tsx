@@ -2,9 +2,7 @@ import { FC } from 'react';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
 
-interface Props {}
-
-const MarksButton: FC<Props> = ({}) => {
+export const MarksButton: FC = ({}) => {
   return (
     <button className={classNames(styles.root)}>
       <div className={classNames(styles.icon)}></div>
@@ -12,5 +10,3 @@ const MarksButton: FC<Props> = ({}) => {
     </button>
   );
 };
-
-export default MarksButton;

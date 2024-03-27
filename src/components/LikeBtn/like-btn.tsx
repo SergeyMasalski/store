@@ -1,11 +1,12 @@
 import classNames from 'classnames';
 import { FC } from 'react';
 import styles from './styles.module.scss';
+
 interface Props {
   liked: boolean;
 }
 
-const LikeBtn: FC<Props> = ({ liked }) => {
+export const LikeBtn: FC<Props> = ({ liked }) => {
   return (
     <button
       className={
@@ -13,5 +14,3 @@ const LikeBtn: FC<Props> = ({ liked }) => {
       }></button>
   );
 };
-
-export default LikeBtn;
