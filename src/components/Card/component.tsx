@@ -2,8 +2,8 @@ import classNames from 'classnames';
 import { FC } from 'react';
 import styles from './styles.module.scss';
 
-import LikeBtn from '../LikeBtn/component';
-import AddToBasketBtn from '../AddToBasketBtn/component';
+import { LikeBtn } from '../LikeBtn/component';
+import { AddToBasketBtn } from '../AddToBasketBtn/component';
 
 type Props = {
   id: number;
@@ -12,9 +12,9 @@ type Props = {
   images: string[];
   inBasket: boolean;
   liked: boolean;
-}
+};
 
-const Card: FC<Props> = ({ id, title, price, images, liked, inBasket }) => {
+export const Card: FC<Props> = ({ id, title, price, images, liked, inBasket }) => {
   return (
     <div className={classNames(styles.root)}>
       <div className={classNames(styles.imgContainer)}>
@@ -36,5 +36,3 @@ const Card: FC<Props> = ({ id, title, price, images, liked, inBasket }) => {
     </div>
   );
 };
-
-export default Card;

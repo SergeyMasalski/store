@@ -1,9 +1,11 @@
 type Routes = {
-  HOME: string,
-  REGISTRATION: string
-}
+  HOME: string;
+  REGISTRATION: string;
+  AUTHORIZATION: string;
+};
 
 export const ROUTES: Routes = {
   HOME: '/',
   REGISTRATION: '/registration',
-}
+  AUTHORIZATION: '/authorization',
+};

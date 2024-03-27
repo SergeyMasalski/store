@@ -1,13 +1,13 @@
 import { FC } from 'react';
-import Header from '../Header/component';
+import { Header } from '../Header/component';
 import classNames from 'classnames';
 import styles from './styles.module.scss';
 
-interface Props {
+type Props = {
   children: React.ReactNode;
-}
+};
 
-const Layout: FC<Props> = ({ children }) => {
+export const Layout: FC<Props> = ({ children }) => {
   return (
     <div className={classNames(styles.root)}>
       <Header />
@@ -15,5 +15,3 @@ const Layout: FC<Props> = ({ children }) => {
     </div>
   );
 };
-
-export default Layout;

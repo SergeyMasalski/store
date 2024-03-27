@@ -2,9 +2,7 @@ import classNames from 'classnames';
 import { FC } from 'react';
 import styles from './styles.module.scss';
 
-interface Props {}
-
-const CartButton: FC<Props> = ({}) => {
+export const CartButton: FC = ({}) => {
   return (
     <button className={classNames(styles.root)}>
       <div className={classNames(styles.icon)}></div>
@@ -12,5 +10,3 @@ const CartButton: FC<Props> = ({}) => {
     </button>
   );
 };
-
-export default CartButton;
