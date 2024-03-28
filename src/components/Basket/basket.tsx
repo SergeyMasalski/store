@@ -5,9 +5,9 @@ import { useAppDispatch, useAppSelector } from '../../features/hooks';
 import { getBasket, clearBasket } from '../../features/basket/basketSlice';
 import { stateBasketProducts } from '../../features/selectors';
 import { Card } from '../../components';
-interface Props {}
 
-export const Basket: FC<Props> = ({}) => {
+
+export const Basket: FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -15,19 +15,13 @@ export const Basket: FC<Props> = ({}) => {
   }, [dispatch]);
 
   const { productsInBasket } = useAppSelector(stateBasketProducts);
-  console.log(productsInBasket);
 
   return (
     <>
       <button onClick={() => dispatch(clearBasket())}>Очистить корзину</button>
       <div className={classNames(styles.cardList)}>
         {productsInBasket.map((product) => (
-          <Card
-            key={product.id}
-            {...product}
-            // inBasket={true}
-            // liked={false}
-          />
+          <Card key={product.id} {...product} />
         ))}
       </div>
     </>

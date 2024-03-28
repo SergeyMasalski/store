@@ -13,8 +13,6 @@ type Props = {
   title: string;
   price: number;
   images: string;
-  // inBasket: boolean;
-  // liked: boolean;
 };
 
 export const Card: FC<Props> = ({ id, title, price, images }) => {

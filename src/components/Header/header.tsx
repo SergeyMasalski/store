@@ -4,9 +4,9 @@ import classNames from 'classnames';
 import styles from './styles.module.scss';
 import { HeaderTabs, Logo } from '../../components';
 
-interface Props {}
 
-export const Header: FC<Props> = ({}) => {
+
+export const Header: FC = () => {
   return (
     <div className={classNames(styles.root)}>
       <Logo />

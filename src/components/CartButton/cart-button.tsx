@@ -3,9 +3,9 @@ import { FC } from 'react';
 import styles from './styles.module.scss';
 import { useNavigate } from 'react-router-dom';
 
-interface Props {}
 
-export const CartButton: FC<Props> = ({}) => {
+
+export const CartButton: FC = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
