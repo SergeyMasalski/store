@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  padding: 20px 60px 0;
+  justify-content: center;
+}
+.productImage {
+  height: 440px;
+  margin-right: 20px;
+  border-radius: 8px;
+}
+
+.productDescription {
+  max-width: 440px;
+}
+
+.productName {
+  font-weight: 700;
+  font-size: 24px;
+}
+.producPrice {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.dimText {
+  color: #bdbdbd;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.descriptionText {
+  font-size: 20px;
+}
+.containerInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

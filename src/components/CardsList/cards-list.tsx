@@ -27,13 +27,7 @@ export const CardsList: FC<Props> = ({}) => {
           <h1>Загрузка</h1>
         ) : (
           products.map((product: Product) => (
-            <Card
-              key={product.id}
-              {...product}
-
-              // inBasket={false}
-              // liked={false}
-            />
+            <Card key={product.id} {...product} />
           ))
         )}
       </div>

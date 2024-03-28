@@ -6,7 +6,7 @@ import { ROUTES } from './utils/routes';
 import { UserContext } from './contexts/UserContext';
 import { useState } from 'react';
 import { User } from './models/types/User';
-import { Basket,Layout,Registration,CardsList, Authorization} from './components';
+import { Basket,Layout,Registration,CardsList, Authorization, ProductPage} from './components';
 
 
 function App() {
@@ -21,6 +21,8 @@ function App() {
             <Route path={ROUTES.REGISTRATION} element={<Registration />} />
             <Route path={ROUTES.BASKET} element={<Basket />} />
             <Route path={ROUTES.AUTHORIZATION} element={<Authorization />} />
+            <Route path={ROUTES.AUTHORIZATION} element={<Authorization />} />
+            <Route path={ROUTES.PRODUCT_PAGE} element={<ProductPage />} />
           </Routes>
         </Layout>
       </UserContext.Provider>

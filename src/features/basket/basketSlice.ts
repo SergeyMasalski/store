@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { BasketState } from '../../models/interfaces/BasketState';
 
+const BASKET_STORAGE_KEY = 'basket';
+
+
 const initialState: BasketState = {
   itemsCount: 0,
   productsInBasket: [],
@@ -12,7 +15,7 @@ export const basketSlice = createSlice({
   reducers: {
     getBasket: (state) => {
       const basket: BasketState = JSON.parse(
-        localStorage.getItem('basket') || '{}'
+        localStorage.getItem(BASKET_STORAGE_KEY) || '{}'
       );
 
       if (Object.keys(basket).length !== 0) {
@@ -38,7 +41,7 @@ export const basketSlice = createSlice({
       });
       state.itemsCount--;
       localStorage.setItem(
-        'basket',
+        BASKET_STORAGE_KEY,
         JSON.stringify({
           productsInBasket: state.productsInBasket,
           itemsCount: state.itemsCount,

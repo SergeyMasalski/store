@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from '../../features/hooks';
 import { getBasket } from '../../features/basket/basketSlice';
 import { stateBasketProducts } from '../../features/selectors';
 import { LikeBtn, AddToBasketBtn } from '../../components';
-
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
   id: number;
@@ -26,12 +26,22 @@ export const Card: FC<Props> = ({ id, title, price, images }) => {
   const inBasket = productsInBasket.some((el) => {
     return el.id === id;
   });
-  console.log(inBasket);
+
+  const navigate = useNavigate();
+
+  const handleImgClick = () => {
+    navigate(`/product/${id}`);
+  };
 
   return (
     <div className={classNames(styles.root)}>
       <div className={classNames(styles.imgContainer)}>
-        <img src={images} alt={title} className={classNames(styles.cardImg)} />
+        <img
+          src={images}
+          alt={title}
+          className={classNames(styles.cardImg)}
+          onClick={handleImgClick}
+        />
         <LikeBtn liked={false} />
       </div>
       <div className={classNames(styles.textContainer)}>

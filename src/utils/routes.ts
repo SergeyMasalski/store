@@ -3,6 +3,7 @@ type Routes = {
   REGISTRATION: string;
   BASKET: string;
   AUTHORIZATION: string;
+  PRODUCT_PAGE: string;
 };
 
 export const ROUTES: Routes = {
@@ -10,4 +11,5 @@ export const ROUTES: Routes = {
   REGISTRATION: '/registration',
   BASKET: '/basket',
   AUTHORIZATION: '/authorization',
+  PRODUCT_PAGE: '/product/:id',
 };
