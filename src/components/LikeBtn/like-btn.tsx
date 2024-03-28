@@ -7,5 +7,10 @@ interface Props {
 }
 
 export const LikeBtn: FC<Props> = ({ liked }) => {
-  return <button className={liked ? classNames(styles.likeBtn) : classNames(styles.notLikeBtn)}></button>;
+  return (
+    <button
+      className={
+        liked ? classNames(styles.likeBtn) : classNames(styles.notLikeBtn)
+      }></button>
+  );
 };

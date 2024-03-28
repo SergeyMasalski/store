@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Search } from './component';
+import { Search } from './search';
 import classNames from 'classnames';
 import styles from './styles.module.scss';
 

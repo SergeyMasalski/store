@@ -22,7 +22,7 @@ export const FormField: FC<Props> = ({ idInput, typeInput, form, placeholderText
         {labelName}
       </label>
 
-      <input
+      <input className={classNames(styles.input)}
         type={typeInput}
         id={idInput}
         placeholder={placeholderText}

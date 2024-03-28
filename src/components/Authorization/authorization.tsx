@@ -6,10 +6,10 @@ import { User as State } from '../../models/types/User';
 
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../utils/routes';
-import { FormField } from '../FormField/component';
 import { reducer } from '../../shared/reducer.function';
 import { FormReducer } from '../../models/types/AuthRegistration.Reducer';
 import { UserContext } from '../../contexts/UserContext';
+import { FormField } from '../../components';
 
 const initialState: State = {
   mail: '',
@@ -21,12 +21,15 @@ export const Authorization: FC = ({}) => {
 
   const { setUser } = useContext(UserContext);
 
-  let [buttonIsPushed, setButtonIsPushed] = useState<boolean>(false);
+  const [buttonIsPushed, setButtonIsPushed] = useState<boolean>(false);
 
   return (
     <form className={classNames(styles.root)}>
       <h3>Добро пожаловать!</h3>
-      <h4>Войдите в систему, чтобы получить доступ к панели управления, настройкам и проектам.</h4>
+      <h4>
+        Войдите в систему, чтобы получить доступ к панели управления, настройкам
+        и проектам.
+      </h4>
 
       <FormField
         buttonIsPushed={buttonIsPushed}
@@ -57,13 +60,14 @@ export const Authorization: FC = ({}) => {
           event.preventDefault();
           setButtonIsPushed(true);
 
-          const hasInvalidFields = Object.values(form).some((item) => item.length === 0);
+          const hasInvalidFields = Object.values(form).some(
+            (item) => item.length === 0
+          );
 
           if (hasInvalidFields) return;
 
           if (setUser) setUser(form);
-        }}
-      >
+        }}>
         Войти
       </button>
 

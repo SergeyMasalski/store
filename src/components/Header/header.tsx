@@ -1,17 +1,16 @@
 import { FC } from 'react';
-import { Header } from '../Header/component';
+
 import classNames from 'classnames';
 import styles from './styles.module.scss';
+import { HeaderTabs, Logo } from '../../components';
 
-type Props = {
-  children: React.ReactNode;
-};
 
-export const Layout: FC<Props> = ({ children }) => {
+
+export const Header: FC = () => {
   return (
     <div className={classNames(styles.root)}>
-      <Header />
-      {children}
+      <Logo />
+      <HeaderTabs />
     </div>
   );
 };

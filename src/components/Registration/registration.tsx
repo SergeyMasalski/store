@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { FormReducer } from '../../models/types/AuthRegistration.Reducer';
 import { reducer } from '../../shared/reducer.function';
 import { User } from '../../models/types/User';
-import { FormField } from '../FormField/component';
+import { FormField } from '../../components';
 
 const initialState: User = {
   name: '',
@@ -18,12 +18,15 @@ const initialState: User = {
 export const Registration: FC = ({}) => {
   const [form, dispatch] = useReducer<FormReducer>(reducer, initialState);
 
-  let [buttonIsPushed, setButtonIsPushed] = useState<boolean>(false);
+  const [buttonIsPushed, setButtonIsPushed] = useState<boolean>(false);
 
   return (
     <form className={classNames(styles.root)}>
       <h3>Добро пожаловать!</h3>
-      <h4>Зарегистрируйтесь, чтобы получить доступ к панели инструментов, настройкам и проектам.</h4>
+      <h4>
+        Зарегистрируйтесь, чтобы получить доступ к панели инструментов,
+        настройкам и проектам.
+      </h4>
 
       <FormField
         buttonIsPushed={buttonIsPushed}
@@ -65,8 +68,7 @@ export const Registration: FC = ({}) => {
         onClick={(event) => {
           event.preventDefault();
           setButtonIsPushed(true);
-        }}
-      >
+        }}>
         Зарегистрироваться
       </button>
 
